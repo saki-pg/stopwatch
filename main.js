@@ -1,13 +1,11 @@
-
-
-
 const STOP_WATCH = document.getElementById('stop_watch');
- const START = document.getElementById('start');
- const STOP = document.getElementById('stop');
- const CLEAR = document.getElementById('clear');
+const START = document.getElementById('start');
+const STOP = document.getElementById('stop');
+const CLEAR = document.getElementById('clear');
 
- let seconds = 0;    //分を表示する変数seconds  初期値を0とする
- let milliseconds = 0;
+let seconds = 0;    //分を表示する変数seconds  初期値を0とする
+let milliseconds = 0;
+let minutes = 0;
 
 
 let stopWatch = () => {
@@ -16,9 +14,14 @@ let stopWatch = () => {
   seconds++;  //+1
   milliseconds = 0;    //0
   }
+  
+  if (seconds % 600 === 0) {
+  minutes++;
+  seconds = 0; 
+  milliseconds = 0;
+  }
 
-
-  STOP_WATCH.innerHTML = '0'+ ':' + '0'+ ':' + ('0' + seconds).slice(-2,-1) + ':' + ('0' + seconds).slice(-1)
+  STOP_WATCH.innerHTML = ('0' + minutes).slice(-1) + ':' + ('00' + seconds).slice(-3,-2) + ':' + ('0' + seconds).slice(-2,-1) + ':' + ('0' + seconds).slice(-1)
 }
 
 let interval;
@@ -44,6 +47,7 @@ STOP.addEventListener('click' , () => {
 //リセット
 CLEAR.addEventListener('click' , () => {
   STOP_WATCH.innerHTML = '0:0:0:0';
+  minutes = 0;
   seconds = 0;
   milliseconds = 0;
   clearInterval(interval);
@@ -51,4 +55,3 @@ CLEAR.addEventListener('click' , () => {
   STOP.disabled = true;
   CLEAR.disabled = true;
 })
-
