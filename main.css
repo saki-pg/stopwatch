@@ -1,0 +1,28 @@
+body {
+  background-color: #ffffff;
+}
+  
+
+
+#stop_watch {
+  font-size: 40px;
+  color: #0c0c0c;
+  letter-spacing: 0.25em;
+  margin: 50px 0 50px 20px;
+}
+
+#stop_watch span {
+  font-size: 20px;
+}
+
+button {
+  font-size: 20px;
+  padding: 10px 5px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #bcbebc;
+}
+
