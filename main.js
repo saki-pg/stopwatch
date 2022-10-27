@@ -13,7 +13,7 @@ let hours = 0;
 let stopWatch = () => {
   milliseconds++;  
  
-  if (milliseconds === 1000 ) {   
+  if (milliseconds === 100 ) {   
   seconds++;  //+1
   milliseconds = 0;    //0
   }
@@ -28,7 +28,7 @@ let stopWatch = () => {
   minutes = 0; 
   }
 
-  STOP_WATCH.innerHTML = ('00' + hours).slice(-2) + ':' + ('00' + minutes).slice(-2) + ':' + ('00' + seconds).slice(-2) + '.' + ('000' + milliseconds).slice(-3)
+  STOP_WATCH.innerHTML = ('00' + hours).slice(-2) + ':' + ('00' + minutes).slice(-2) + ':' + ('00' + seconds).slice(-2) + '.' + ('00' + milliseconds).slice(-2)
 }
 
 
@@ -37,7 +37,7 @@ let interval;
 START.addEventListener('click' , () => {
 
 //スタート
-  interval = setInterval(stopWatch,1);
+  interval = setInterval(stopWatch,10);
   START.disabled = true;  //無効化 
   STOP.disabled = false;  //有効化
   CLEAR.disabled = false; //有効化 
@@ -54,7 +54,7 @@ STOP.addEventListener('click' , () => {
 
 //リセット
 CLEAR.addEventListener('click' , () => {
-  STOP_WATCH.innerHTML = '00:00:00.000';
+  STOP_WATCH.innerHTML = '00:00:00.00';
   hours = 0;
   minutes = 0;
   seconds = 0;
